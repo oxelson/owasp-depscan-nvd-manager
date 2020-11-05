@@ -1,0 +1,17 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.owasp:dependency-check-gradle:6.0.3'
+  }
+}
+ 
+apply plugin: 'org.owasp.dependencycheck'
+
+dependencyCheck {
+  data {
+    directory="$rootDir/nvd"
+  }
+}
+
