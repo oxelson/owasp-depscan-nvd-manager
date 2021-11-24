@@ -1,13 +1,12 @@
-buildscript {
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath 'org.owasp:dependency-check-gradle:6.0.3'
-  }
+plugins {
+  id 'base'
+  id 'org.owasp.dependencycheck' version '6.5.0.1'
 }
- 
-apply plugin: 'org.owasp.dependencycheck'
+
+tasks.named('wrapper') {
+  distributionType = Wrapper.DistributionType.ALL
+  gradleVersion = '7.3'
+}
 
 dependencyCheck {
   data {
